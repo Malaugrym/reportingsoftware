@@ -3,11 +3,16 @@ import urllib
 import urllib.request as urllib2
 import requests
 
-url = 'https://summithosting.kayako.com/api/v1/users'
+url = 'https://summithosting.kayako.com/api/v1/conversations'
 
 username = 'bparks@summithosting.com'
 pw = 'Welcome1!'
 
 req = requests.get(url, auth=requests.auth.HTTPBasicAuth(username,pw))
 
-print (json.loads(req.text))
+
+# print (json.loads(req.text))
+test = json.loads(req.text)
+
+for a in test['data']:
+    print (a["resource_url"])
